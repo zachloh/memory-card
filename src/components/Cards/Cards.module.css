@@ -1,0 +1,11 @@
+.container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  place-content: center;
+  height: calc(100vh - var(--header-height) - var(--score-container-height));
+}
+
+.error {
+  font-size: 2rem;
+  font-weight: bold;
+}
