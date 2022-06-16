@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { fetchPokemonSprites } from '../lib/fetchPokemons';
+import { shuffleArray } from '../utils/shuffleArray';
 
 export const useFetchPokemons = () => {
   const [pokemonCards, setPokemonCards] = useState([]);
@@ -11,7 +12,7 @@ export const useFetchPokemons = () => {
       try {
         setIsLoading(true);
         const pokemons = await fetchPokemonSprites();
-        setPokemonCards(pokemons);
+        setPokemonCards(shuffleArray(pokemons));
       } catch (err) {
         setError(err.message);
       }
@@ -23,6 +24,7 @@ export const useFetchPokemons = () => {
 
   return {
     pokemonCards,
+    setPokemonCards,
     isLoading,
     error,
   };

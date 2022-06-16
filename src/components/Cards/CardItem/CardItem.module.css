@@ -20,6 +20,11 @@
   transform: scale(1);
 }
 
+.card:focus {
+  transform: scale(1.05);
+  outline: none;
+}
+
 .pokemon {
   height: auto;
   width: 120px;
